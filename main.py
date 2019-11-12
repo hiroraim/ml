@@ -29,3 +29,20 @@ def polynomial2_features(input):
     """
     poly2 = input[:,1:]**2
     return np.c_[input,poly2]
+
+def polynomial3_features(input):
+    """
+        >>> X,Y = load_nonlinear_example1()
+        >>> print(polynomial3_features(X))
+        [[ 1.    0.    0.  ]
+         [ 1.    2.    4.  ]
+         [ 1.    3.9  15.21]
+         [ 1.    4.   16.  ]]
+        >>> print(Y)
+        [[ 1.     0.     0.   ]
+        [ 1.     2.     8.   ]
+         [ 1.     3.9   59.319]
+         [ 1.     4.    64.   ]]
+        """
+    poly3 = input[:, 1:] ** 3
+    return np.c_[input, poly3]
