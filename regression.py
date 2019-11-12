@@ -57,3 +57,19 @@ class LinearRegression:
         """
         error = self.predict(x) - y
         return (error**2).sum()
+
+class RigdeRegression(LinearRegression):
+    alpha = None
+
+    def __init__(self, alpha = 0.1):
+        self.alpha = alpha
+
+    def fit(self,input, output):
+        """
+        >>> model = RigdeRegression(alpha = 0.5)
+        >>> model.alpha
+        0.5
+        """
+        xTx = np.dot(input.T,output)
+        I = np.eye(len(xTx))
+        self.theta = np.dot(np.dot(np.linalg.inv(xTx + self.alpha*I),input.T),output)
